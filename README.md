@@ -15,16 +15,18 @@
 
 ## Software architecture Process
 
-We used a Domain Driven Design approach to try and create a Modular Monolith architecture of the MyDRTV assignment.
-We created a domain diagram, with th purpose of identifying business domains define as boundary contexts for the domain:
+We used a Domain Driven Design approach to try and create boundary contexts for the domain.
+From these, we had a better understanding of how we could isolate different parts of the domain from each other
 
 ![](images/DRTV(1).jpg)
 
-We found four bounded contexts, which we believe might be worth splitting into isolated services. We then went on to create a C4 container diagram of how an actual Modular Monolith architecture could look like with these boundaries.
+We found four bounded contexts, which we believe might be worth splitting into isolated services. We then went on to create a C4 container diagram of how an actual architecture could look like with these boundaries. We see that some features can operate completely isolated from other, but some features need information obout the operations for others features to function properly. This includes the recommendation system, which needs information about how the user has interacted with for example, the content search feature.
 
 ![](images/DRTV.jpg)
 
-Here we imagine all containers as independent services, which is collected and presented to the user by a common UI. An external Service like OAuth could be used for verifying user credentials and providing them with an authentication token, like fx JWT.
+To solve these issues, we have decided on a type of Service-Based Architecture.
+
+We imagine all containers as independent services, which is collected and presented to the user by a common UI. An external Service like OAuth could be used for verifying user credentials and providing them with an authentication token, like fx JWT.
 
 The services that are dependent on each other for fx application state can share a common database, where other modules can update the data state accordingly. For example can an isolated recommendation module be dependent on recent search patterns or streams by a specific user.
 
