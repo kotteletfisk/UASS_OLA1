@@ -24,7 +24,7 @@ We found four bounded contexts, which we believe might be worth splitting into i
 
 ![](images/DRTV.jpg)
 
-To solve these issues, we have decided on a type of Service-Based Architecture.
+To solve these issues, we propose a type of Service-Based Architecture.
 
 We imagine all containers as independent services, which is collected and presented to the user by a common UI. An external Service like OAuth could be used for verifying user credentials and providing them with an authentication token, like fx JWT.
 
