@@ -15,12 +15,11 @@
 
 ## Software architecture Process
 
-We used a Domain Driven Design approach to try and create boundary contexts for the domain.
-From these, we had a better understanding of how we could isolate different parts of the domain from each other
+We used a Domain Driven Design approach to try an better understand the boundaries of the domain, to better understand data flow, and where potential encapsulation between domains might make sense.
 
 ![](images/DRTV(1).jpg)
 
-We found four bounded contexts, which we believe might be worth splitting into isolated services. We then went on to create a C4 container diagram of how an actual architecture could look like with these boundaries. We see that some features can operate completely isolated from other, but some features need information obout the operations for others features to function properly. This includes the recommendation system, which needs information about how the user has interacted with for example, the content search feature.
+We found four bounded contexts, which we believe might be worth splitting into encapsulated services. We went on to create a C4 container diagram of how an actual architecture could look like with these boundaries. We see that some features can operate completely isolated from other, but some features need information obout the operations for others features to function properly. This includes the recommendation system, which needs information about how the user has interacted with for example, the content search feature.
 
 ![](images/DRTV.jpg)
 
